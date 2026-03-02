@@ -9,12 +9,13 @@ class GroqLLM:
     def get_llm_models(self):
         try:
             groq_api_key = self.user_control_input["GROQ_API_KEY"]
+            print(groq_api_key, "Key")
             selected_groq_model = self.user_control_input['selected_groq_model']
-            if groq_api_key=='' or os.environ["GROQ_API_KEY"] == '':
+            if groq_api_key=='':
                 st.error("enter groq api key")
 
             llm= ChatGroq(api_key=groq_api_key, model=selected_groq_model)
 
         except Exception as e:
-            raise ValueError(f"Error Ocuured with Exception as {e} ")
+            raise ValueError(f"Error Ocuured with Exception as saddd {e} ")
         return llm
